@@ -686,7 +686,7 @@ export default {
   opacity: 0.38;
 }
 
-/* 
+/*
 When the upload, asr or tts buttons are disabled and then the input box is disabled as well
 We should not dim it twice, so we check: .twc-user-input:not(.twc-disabled)
 */
@@ -705,17 +705,19 @@ We should not dim it twice, so we check: .twc-user-input:not(.twc-disabled)
   box-sizing: border-box;
   margin: 4px 4px 4px 4px;
   padding: 12px;
+    /* Qiqi -update 
+  font-size: 0.95em;*/
+  font-size: 16px;
   font-weight: 400;
   /* Qiqi -update 
-  font-size: 0.95em;
-  line-height: 1.4;letter-spacing*/
-  font-size: 16px;
-  line-height: 24px;
+  line-height: 1.4;
+  add letter-spacing*/
+  line-height: 16px;
   letter-spacing: -0.01em;
   white-space: pre-wrap;
   word-wrap: break-word;
   /*Qiqi- update text color: var(--user-input-fg-color, #565867);*/
-  color: black;
+  color: var(--user-input-fg-color, #000000);
   background-color: transparent;
   -webkit-font-smoothing: antialiased;
   max-height: 200px;
@@ -724,8 +726,7 @@ We should not dim it twice, so we check: .twc-user-input:not(.twc-disabled)
   bottom: 0;
   overflow-x: hidden;
   overflow-y: auto;
-  /*Qiqi- change font family*/
-  font-family: "Scania Sans Semi Condensed", "Scania Sans Condensed";
+  font-family: inherit;
 }
 
 .twc-user-input__text::placeholder {
@@ -822,9 +823,9 @@ We should not dim it twice, so we check: .twc-user-input:not(.twc-disabled)
 .twc-user-input__tts-icon {
   height: 20px;
   width: 20px;
+  align-self: center;
   /*Qiqi - add opacity*/
   opacity:87%;
-  align-self: center;
 }
 
 .twc-user-input__asr-icon-wrapper.twc-active {

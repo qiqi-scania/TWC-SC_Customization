@@ -179,8 +179,7 @@ export default {
     font-size: 1.25em;
     font-weight: 500;
     color: var(--bot-message-fg-color, #263238);
-    /*Qiqi- change font family*/
-    font-family: "Scania Sans Semi Condensed", "Scania Sans Condensed";
+    font-family: inherit;
     line-height: 1.2;
     margin-top: 0.6rem;
     margin-bottom: 0.6rem;

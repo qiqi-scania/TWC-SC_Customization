@@ -12,8 +12,6 @@ import isValidUrl from '../src/utils/validate-url';
 import { translatedMessages } from '../src/utils/localized-messages';
 import VueI18n from 'vue-i18n';
 
-
-
 const functionMap = new Map();
 const validFunctionNames = Object.values(apiConstants);
 const messageList = new messageListCache();
@@ -44,7 +42,7 @@ window.TeneoWebChat = {
 
     if (twcProps.teneoEngineParams) {
       // TODO: Check if twcProps.teneoEngineParams is a map
-      store.commit('teneoEngineParams', twcProps.teneoEngineParams);
+       store.commit('teneoEngineParams', twcProps.teneoEngineParams);
     }
 
     if (twcProps.showCloseButton === true || twcProps.showCloseButton === 'true') {
@@ -264,6 +262,9 @@ return filteredMessageList;
         case apiConstants.API_GET_MS_VOICE:
         return store.getters.msVoice;
 
+      case apiConstants.API_GET_ENGINE_PARAMS:
+        return store.getters.teneoEngineParams
+
       default:
         break;
     }
@@ -285,6 +286,12 @@ return filteredMessageList;
         // TODO: throw error if payload is invalid or if store throws error
         store.commit('locale', payload);
         EventBus.$emit(events.SET_LOCALE, store.getters.locale);
+        break;
+
+        case apiConstants.API_SET_ENGINE_PARAMS:
+        // TODO: throw error if payload is invalid or if store throws error
+        store.commit('teneoEngineParams', payload);
+        EventBus.$emit(events.SET_ENGINE_PARAMS, store.getters.teneoEngineParams);
         break;
 
         case apiConstants.API_SET_MS_VOICE:

@@ -67,17 +67,15 @@ export default {
   color: var(--link-button-fg-color, #007bff) !important;
   background: var(--link-button-bg-color, #ffffff) !important;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 400;
   text-align: center;
   vertical-align: middle;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  /*padding: 0.375rem 0.75rem;*/
-  padding: 9px 18px 8px;
-  /*font-size: 0.9em;*/
-  font-size: 14px;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.9em;
   line-height: 1.5;
   border-radius: 0.25rem;
   display: inline-block;
@@ -88,14 +86,15 @@ export default {
 .twc-linkbutton:hover {
   text-decoration: underline;
 }
-/*Qiqi- change link button font size, font family*/
+
 .twc-linkbuttons h5 {
   text-align: center;
-  font-family: "Scania Sans Semi Condensed", "Scania Sans Condensed";
+  font-family: inherit;
   line-height: 1.2;
   margin-top: 0;
   margin-bottom: 0.6rem;
-  font-size: 1.6rem;
+  /*Qiqi- change link button font size*/
+  font-size: 1.6em;
   font-weight: 500;
   color: var(--buttons-title-color, #263238);
 }

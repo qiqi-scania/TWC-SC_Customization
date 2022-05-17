@@ -131,7 +131,7 @@ export default {
     },
     sanitizedHtmlText() {
       return sanitizeHtml(this.message.data.text);
-    },
+    }
   },
   methods: {
     async onLinkbuttonClick(linkbutton, event) {
@@ -146,8 +146,8 @@ export default {
       if (keyIsSpaceOrEnter(event)) {
         this.onSelect(button, idx)
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -179,7 +179,7 @@ export default {
 .twc-card-img img {
   object-fit: cover;
   width: 100%;
-  height: 180px;
+  height: auto;
   border-top-left-radius: calc(0.25rem - 1px);
   border-top-right-radius: calc(0.25rem - 1px);
 }
@@ -207,19 +207,21 @@ export default {
   font-weight: 500;
   color: var(--secondary-color, #263238) !important;
 }
-/*Qiqi - Update font size and line height*/
+
 .twc-card-text {
-  text-align: left;
   font-weight: 400;
+  /*Qiqi - Update text-align, font size and line height*/
   font-size: 14px;
   line-height: 20px;
+  text-align: left;
+  /*Qiqi - Update End.*/
   white-space: pre-wrap;
   -webkit-font-smoothing: subpixel-antialiased;
   color: var(--bot-message-fg-color, #263238);
   margin-top: 0.6rem;
   margin-bottom: 0.6rem;
-  
 }
+
 /*Qiqi - add font style,size for card text link*/
 .twc-card-text a{
     color: #2058A8;
@@ -230,8 +232,7 @@ export default {
 .twc-card-text a:hover {
   text-decoration: underline;
 }
-
-/*Qiqi - Update End -add font style for card text link*/
+/*Qiqi - Update End */
 
 .twc-card .twc-clickablelist-message__item {
   border-left: none;

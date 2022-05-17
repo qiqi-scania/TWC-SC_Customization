@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <button
       id="twc-launchbutton"
       class="twc-launch-button"
@@ -11,10 +10,8 @@
       :aria-roledescription="$t('message.launchbutton_aria_roledescription')"
       :aria-label="$t('message.launchbutton_aria_label')"
     >
-
-      <img v-if="launchIconUrl" class="twc-launch-button__open-icon" :src="launchIconUrl" aria-hidden="true" alt=""   />
-      <BubbleIcon v-else class="twc-launch-button__open-icon" id="default-launch-button-icon" aria-hidden="true" />
-
+      <img v-if="launchIconUrl" class="twc-launch-button__open-icon" :src="launchIconUrl" aria-hidden="true" alt=""/>
+      <BubbleIcon v-else class="twc-launch-button__open-icon" id="default-launch-button-icon" aria-hidden="true"/>
     </button>
 
     <div v-if="isCalloutVisible" class="twc-callout">
@@ -23,12 +20,10 @@
         <p class="twc-callout-message-text"  @click="open()" v-html="sanitizedHtmlText"></p>
       </div>
     </div>
-
   </div>
 
-</template>
-  
 
+</template>
 <script>
 import BubbleIcon from '../icons/bubble.vue';
 import CloseIcon from '../icons/x.vue';
@@ -121,7 +116,7 @@ export default {
 }
 
 .twc-launch-button__open-icon {
-  /*Qiqi -update icon size from 25px to 75*/
+  /*Qiqi -update icon size from 26px to 75*/
   height: 75px;
   width: 75px;
   color: var(--launchicon-fg-color, #ffffff);
@@ -160,7 +155,7 @@ export default {
 .twc-callout-message-box {
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.15);
   /*Qiqi -update background-color: var(--callout-bg-color, #ffffff);*/
-  background-color: #37414F;
+  background-color: var(--callout-bg-color, #37414F);
   transition: 0.3s ease-in-out;
   border-radius: 10px;
   cursor: pointer;
@@ -168,10 +163,11 @@ export default {
   -webkit-animation: twc-fade-in 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   animation: twc-fade-in 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
-/* Qiqi - update font family from var(--primary-font, 'Helvetica Neue', Helvetica, Arial, sans-serif) to "Scania Sans Semi Condensed", "Scania Sans Condensed", Arial, Helvetica, sans-serif !important" */
+
 .twc-callout-message-text {
-  /*Qiqi - color: var(--callout-fg-color, #263238); */
-  color: white;
+  /*Qiqi - update color: var(--callout-fg-color, #263238); */
+  color: var(--callout-fg-color, #ffffff);
+  /* Qiqi - update font family to Scania Font Family */
   font-family: "Scania Sans Semi Condensed", "Scania Sans Condensed", Arial, Helvetica, sans-serif !important;
   /*Qiqi - padding: 16px;*/
   padding: 8px;

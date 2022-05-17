@@ -1,6 +1,6 @@
 <template>
   <div class="twc-message" :class="messageSourceClass">
-      <component :is="messageType" :message="message" />
+    <component :is="messageType" :message="message"/>
   </div>
 </template>
 
@@ -16,7 +16,6 @@ export default {
   },
   computed: {
     messageType() {
-      // TODO: check if message type is valid?
       if (messageComponentName(this.message.type) && this.$options.components[messageComponentName(this.message.type)]) {
         return messageComponentName(this.message.type);
       }

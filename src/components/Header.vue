@@ -59,9 +59,9 @@ export default {
 </script>
 
 <style scoped>
-/*Qiqi - update header background primary color*/
 .twc-header {
-  background: var(--header-bg-color, #4e8cff);
+  /*Qiqi - update header background with new primary color*/
+  background: var(--header-bg-color, #041e42);
   min-height: 64px;
   border-top-left-radius: 9px;
   border-top-right-radius: 9px;
@@ -72,19 +72,18 @@ export default {
   display: flex;
   align-items: center;
 }
-/*Qiqi - update header icon size from 24 to 32*/
+
 .twc-header__img {
+  /*Qiqi - update header icon height and width from 24 to 32*/
   height: 32px;
   width: 32px;
   margin: 0 8px 0 8px;
   color: var(--header-fg-color, #ffffff);
-  fill:white;
-
 }
 
 .twc-header__title {
   color: var(--header-fg-color, #ffffff);
-  /*Qiqi - update header title font size to headerline 6*/
+  /*Qiqi - add header title font size to headerline 6*/
   font-size: 14px;
   line-height: 16px;
   letter-spacing: -0.02em;
@@ -101,16 +100,15 @@ export default {
 }
 
 .twc-header__close-icon {
-
-  color: var(--header-fg-color, #ffffff);
-  stroke-width: 1;
   /* Qiqi - update height: 32px;
   width: 32px;
-  padding*/
+  add margin */
   height: 20px;
   width: 20px;
-  padding:16px;
-
+  margin: 10px;
+  /*Qiqi - update end*/
+  color: var(--header-fg-color, #ffffff);
+  stroke-width: 1;
 }
 
 .twc-header__minimize-button {
@@ -124,14 +122,14 @@ export default {
 .twc-header__minimize-icon {
   /* Qiqi - update
    height: 32px;
-  width: 32px;*/
+  width: 32px;
+  add margin */
   height: 20px;
   width: 20px;
-  padding:16px;
+  margin: 10px;
+  /*Qiqi - update end*/
   color: var(--header-fg-color, #ffffff);
   stroke-width: 1;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .twc-header__close-button:focus, .twc-header__minimize-button:focus {

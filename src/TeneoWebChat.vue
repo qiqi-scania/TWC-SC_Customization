@@ -1,5 +1,4 @@
 <template>
-
   <div id="teneo-web-chat" class="teneo-web-chat">
     <ChatWindow
         v-if="isChatOpen"
@@ -7,8 +6,7 @@
         :on-close="closeChat"
         :on-minimize="minimizeChat"
     />
-    <LaunchButton v-if="!isChatOpen" :open="openChat" :is-open="isChatOpen" :is-minimized="isChatMinimized"    />
-
+    <LaunchButton v-if="!isChatOpen" :open="openChat" :is-open="isChatOpen" :is-minimized="isChatMinimized"/>
   </div>
 </template>
 
@@ -24,8 +22,7 @@ import {
   API_ON_CLOSE_BUTTON_CLICK,
   API_ON_MINIMIZE_BUTTON_CLICK,
   API_ON_VISIBILITY_CHANGED,
-  API_ON_RESET,
-  API_STATE_READY
+  API_ON_RESET
 } from './utils/api-function-names.js';
 import {
   API_KEY_VISIBILITY,
@@ -132,7 +129,6 @@ export default {
     });
 
     EventBus.$emit(events.API_STATE_READY);
-    
   },
   methods: {
     // Encapsulating dependency methods makes Testing easier
@@ -270,33 +266,28 @@ export default {
 </script>
 
 <style scoped>
-/*Qiqi - update twc bot msm box color"light-bg-color"*/
-/*Qiqi - update twc primary color"#4e8cff" to "#041e42"*/
-/*Qiqi - update clickablelist-bg-color: var(--light-fg-color); should be #EDEFF3, but too ugly, didn't change
---clickablelist-fg-color: var(--dark-fg-color); to #033A6A*/
-/*Qiqi - update --user-input-bg-color: #f4f7f9; to #DBDFE6*/
-/*Qiqi - update --success-color: #28a745; to #44A878; --danger-color: #dc3545; to #CC1040*/
-/*Qiqi - update --primary-color: #041e42; */
-/*Qiqi - update --text-link-color: #007bff; to #4A8BA4*/
 .teneo-web-chat {
   --light-fg-color: #ffffff;
+  /*Qiqi - update "light-bg-color" to #ffffff*/
   --light-bg-color: #ffffff;
   --light-border-color: #c9c9c9;
   --dark-fg-color: #263238;
   --dark-bg-color: #7b7b7b;
+  /*Qiqi - update twc primary color"#4e8cff" to "#041e42"*/
   --primary-color: #041e42;
   --secondary-color: #6c757d;
+  /*Qiqi - update --danger-color: #dc3545; to #CC1040*/
   --danger-color: #CC1040;
+  /*Qiqi - update --success-color: #28a745; to #44A878; */ 
   --success-color: #44A878;
   --warning-color: #ffc107;
   --warning-fg-text-color: #d19d00;
   --info-color: #17a2b8;
   --expired-color: #a9a9a9;
-  /*Qiqi - update text link color
-  --text-link-color: #4A8BA4;*/
-  --text-link-color: #2058A8;
+  /*Qiqi - update --text-link-color: #007bff; to #4A8BA4*/
+  --text-link-color: #4A8BA4;
   --user-input-bg-color: #f4f7f9;
-  --user-input-fg-color: #565867;
+  --user-input-fg-color: #000000;
   --spinner-color: var(--light-border-color);
   --sendicon-fg-color: var(--dark-fg-color);
   --uploadicon-fg-color: var(--dark-fg-color);
@@ -306,19 +297,21 @@ export default {
   --ttsicon-active-color: var(--danger-color);
   --launch-button-bg-color: var(--primary-color);
   --launchicon-fg-color: var(--light-fg-color);
-  --callout-fg-color: var(--user-input-fg-color);
-  --callout-bg-color: var(--light-fg-color);
+  /*Qiqi -update background-color:  var(--user-input-fg-color)*/
+  --callout-fg-color: #ffffff;
+  /*Qiqi -update background-color: var(--light-fg-color);*/
+  --callout-bg-color: #37414F;
   --callout-close-button-fg-color: var(--secondary-color);
   --header-bg-color: var(--primary-color);
   --header-fg-color: var(--light-fg-color);
+  /*Qiqi- update twc bg color #ffffff to #f9fafb*/
   --chat-window-bg-color: #f9fafb;
   --bot-message-fg-color: var(--dark-fg-color);
   --bot-message-bg-color: var(--light-bg-color);
   --agent-message-fg-color: var(--light-fg-color);
   --agent-message-bg-color: #47b2fd;
   --user-message-fg-color: var(--light-fg-color);
-  /*Qiqi -update --user-message-bg-color: var(--primary-color);*/
-  --user-message-bg-color: #E7E9EE;
+  --user-message-bg-color: var(--primary-color);
   --bot-typing-indicator-fg-color: var(--secondary-color);
   --bot-typing-indicator-bg-color: var(--bot-message-bg-color);
   --agent-typing-indicator-fg-color: var(--agent-message-fg-color);
@@ -326,17 +319,19 @@ export default {
   --user-typing-indicator-fg-color: var(--user-message-fg-color);
   --user-typing-indicator-bg-color: var(--user-message-bg-color);
   --buttons-title-color: var(--dark-fg-color);
-  /*Qiqi -update --button-fg-color: var(--light-fg-color);
-  --button-bg-color: var(--primary-color);*/
-  --button-fg-color: #000000;
-  --button-bg-color: #E7E9EE;
+  /*Qiqi -update --button-fg-color: var(--light-fg-color) to #ffffff;*/
+  --button-fg-color: #ffffff;
+  /*Qiqi -update--button-bg-color: var(--primary-color); to #041e42*/
+  --button-bg-color: #041e42;
   --card-bg-color: var(--light-fg-color);
   --card-link-color: var(--text-link-color);
   --link-button-fg-color: var(--text-link-color);
   --link-button-bg-color: var(--light-fg-color);
   --link-button-border-color: var(--light-border-color);
   --clickablelist-title-color: var(--dark-fg-color);
+  /*Qiqi - update clickablelist-bg-color: var(--light-fg-color); should be #EDEFF3, but too ugly, didn't change*/
   --clickablelist-bg-color: var(--light-fg-color);
+  /*Qiqi - update --clickablelist-fg-color: var(--dark-fg-color); to #033A6A*/
   --clickablelist-fg-color: #033A6A;
   --clickablelist-selected-bg-color: var(--bot-message-bg-color);
   --clickablelist-selected-fg-color: var(--dark-fg-color);
@@ -345,7 +340,6 @@ export default {
   --quickreply-border-color: var(--primary-color);
   --quickreply-expired-color: var(--expired-color);
   --lightbox-overlay-color: rgba(0, 0, 0, 0.8);
-   /*Qiqi- update twc bg color*/
   --lightbox-image-background-color: #ffffff;
   --modal-overlay-color: rgba(0, 0, 0, 0.5);
   --carousel-ctrl-panel-bg-color: var(--primary-color);

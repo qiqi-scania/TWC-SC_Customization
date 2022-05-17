@@ -74,13 +74,15 @@ export default {
   text-align: center;
 }
 
-/*Qiqi - update primary color, font size*/
 .twc-quickreply-message__item {
+  /*Qiqi - update primary color*/
   border: 1px solid var(--quickreply-border-color, #041e42);
   border-radius: 16px;
   padding: 8px 14px 8px 14px;
+  /*Qiqi - update primary color*/
   color: var(--quickreply-fg-color, #041e42);
   cursor: pointer;
+  /*Qiqi - update  font size*/
   font-size: 14px;
   display: inline-block;
   margin: 3px;
@@ -94,15 +96,16 @@ export default {
   outline: none;
 }
 
-/*Qiqi - update primary color*/
 .twc-quickreply-message__item.twc-selected,
 .twc-quickreply-message:not(.twc-expired) .twc-quickreply-message__item:hover {
   background: var(--quickreply-bg-color, #ffffff);
+  /*Qiqi - update primary color*/
   color: var(--quickreply-fg-color, #041e42);
 }
-/*Qiqi - update primary color*/
+
 .twc-quickreply-message__item.twc-selected,
 .twc-quickreply-message:not(.twc-expired) .twc-quickreply-message__item:hover {
+  /*Qiqi - update primary color*/
   background: var(--quickreply-fg-color, #041e42);
   color: var(--quickreply-bg-color, #ffffff);
 }

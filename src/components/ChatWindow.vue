@@ -117,8 +117,9 @@ export default {
 </script>
 
 <style scoped>
-/* Qiqi - update font family from var(--primary-font, 'Helvetica Neue', Helvetica, Arial, sans-serif) to "Scania Sans Semi Condensed", "Scania Sans Condensed", Arial, Helvetica, sans-serif !important" */
 .twc-chat-window {
+  /* Qiqi - update font family from var(--primary-font, 'Helvetica Neue', Helvetica, Arial, sans-serif) to "Scania Sans Semi Condensed", "Scania Sans Condensed", Arial, Helvetica, sans-serif !important" */
+  /* font-family: var(--primary-font, 'Helvetica Neue', Helvetica, Arial, sans-serif); */
   font-family: "Scania Sans Semi Condensed", "Scania Sans Condensed", Arial, Helvetica, sans-serif !important;
   width: 370px;
   height: calc(100% - 120px);
@@ -129,7 +130,7 @@ export default {
   bottom: 25px;
   box-sizing: border-box;
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.15);
-  /*Qiqi- update twc bg color*/
+  /*Qiqi- update twc bg color #ffffff to #f9fafb*/
   background: var(--chat-window-bg-color, #f9fafb);
   display: flex;
   flex-direction: column;
@@ -152,9 +153,6 @@ export default {
     border-radius: 0px;
   }
 }
-
-
-
 
 .ios-keyboard-shown {
   transition: 0.3s ease-in-out !important;

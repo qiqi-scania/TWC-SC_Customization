@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     _scrollDown() {
-      const latestMessage = document.querySelector('.message:last-child');
+      const latestMessage = document.querySelector('.twc-message:last-child');
 
       if (latestMessage && typeof latestMessage.scrollIntoView === 'function') {
         latestMessage.scrollIntoView({
@@ -51,7 +51,8 @@ export default {
       }
     },
     _scrollDownInstantly() {
-      const latestMessage = document.querySelector('.message:last-child');
+
+      const latestMessage = document.querySelector('.twc-message:last-child');
 
       if (latestMessage && typeof latestMessage.scrollIntoView === 'function') {
         latestMessage.scrollIntoView({
@@ -76,8 +77,7 @@ export default {
   height: 80%;
   overflow-y: auto;
   background-size: 100%;
-  /* Qiqi -udpate bottom padding to 24px
-  padding: 20px 0px;*/
+  /* Qiqi -udpate padding: 20px 0px;*/
   padding: 24px 0px;
 }
 

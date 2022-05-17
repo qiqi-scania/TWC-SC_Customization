@@ -103,22 +103,22 @@ _:-ms-fullscreen, :root .twc-message.twc-user .twc-text-message-wrapper  {
   text-align: right;
 }
 .twc-text-message {
-  /*Qiqi - update padding*/
-  /*padding: 6px 18px;*/
-  padding: 16px;
+  /*Qiqi - update padding 6px 18px*/
+  padding: 5px 15px 5px 15px;
   border-radius: 10px;
   font-weight: 300;
   font-size: 0.9em;
   line-height: 1.4;
   -webkit-font-smoothing: subpixel-antialiased;
 }
-    /*Qiqi - update twc bot msm box color, add box shadow*/
 .twc-message.twc-bot .twc-text-message {
   color: var(--bot-message-fg-color, #263238);
+  /*Qiqi - update twc bot msm box color, add box shadow*/
   background-color: var(--bot-message-bg-color, #ffffff);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+  /*Qiqi - Update End*/
   margin-right: 40px;
   border-bottom-left-radius: 0px;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
 }
 
 .twc-message.twc-agent .twc-text-message {
@@ -127,8 +127,9 @@ _:-ms-fullscreen, :root .twc-message.twc-user .twc-text-message-wrapper  {
   margin-right: 40px;
   border-bottom-left-radius: 0px;
 }
-/*Qiqi -update primary color*/
+
 .twc-message.twc-user .twc-text-message {
+  /*Qiqi -update primary color*/
   background: var(--user-message-bg-color, #041e42);
   color: var(--user-message-fg-color, #ffffff);
   word-wrap: break-word;
@@ -138,9 +139,7 @@ _:-ms-fullscreen, :root .twc-message.twc-user .twc-text-message-wrapper  {
 .twc-text-message__text {
   margin-top: 0.4em;
   margin-bottom: 0.4em;
-  /*Qiqi -update text style, color, weight, opacity,text align lef*/
-  /*font-weight: 400;
-  opacity:87%;*/
+  /*Qiqi -update text style, color, weight, opacity,text align lef; font-weight: 400;  opacity:87%;*/
   font-size:14px;
   Line-height:20px;
   font-weight:Normal;

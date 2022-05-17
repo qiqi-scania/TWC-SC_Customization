@@ -1,16 +1,28 @@
 <template>
   <div class="twc-buttons" :class="{ 'twc-expired': replySent || isExpired}">
     <h5 class="twc-buttons-title" v-if="buttonsTitle">{{ buttonsTitle }}</h5>
-      <a
+    <a
         role="button"
         :tabindex="replySent || isExpired ? -1 : 0"
         v-for="(button, idx) in buttonitems"
         :key="idx"
         class="twc-btn"
-        :class="{ 'twc-selected': replySent && selected === idx, 'twc-primary': button.style == 'primary', 'twc-secondary': button.style == 'secondary', 'twc-success': button.style == 'success', 'twc-danger': button.style == 'danger', 'twc-warning': button.style == 'warning', 'twc-info': button.style == 'info'}"
+        :class="{
+          'twc-selected': replySent && selected === idx,
+          'twc-primary': button.style === 'primary',
+          'twc-secondary': button.style === 'secondary',
+          'twc-success': button.style === 'success',
+          'twc-danger': button.style === 'danger',
+          'twc-warning': button.style === 'warning',
+          'twc-info': button.style === 'info',
+          'twc-star': button.style === 'star'
+        }"
         @click="onSelect(button, idx)"
         @keydown="handleReturnSpaceKeys($event, button, idx)"
-      >{{ button.title }}</a>
+    >
+      <span>{{ button.title }}</span>
+      <StarIcon v-if="button.style=='star'" class="twc-star-icon"/>
+    </a>
   </div>
 </template>
 
@@ -18,6 +30,7 @@
 
 import handleButtonClick from '../../utils/handle-button-click.js';
 import keyIsSpaceOrEnter from '../../utils/is-space-or-enter.js';
+import StarIcon from '../../icons/x.vue';
 
 export default {
   name: 'ButtonsMessage',
@@ -27,14 +40,17 @@ export default {
       required: true,
       validator: (message) => {
         return (
-          message &&
-          message.type === 'buttons' &&
-          message.data &&
-          message.data.button_items &&
-          message.data.button_items.length > 0
+            message &&
+            message.type === 'buttons' &&
+            message.data &&
+            message.data.button_items &&
+            message.data.button_items.length > 0
         );
       },
     },
+  },
+  components: {
+    StarIcon
   },
   computed: {
     buttonsTitle() {
@@ -52,7 +68,7 @@ export default {
       return this.message.selected;
     },
     isExpired() {
-      const { messageList } = this.$teneoApi;
+      const {messageList} = this.$teneoApi;
       const latestMessage = messageList[messageList.length - 1];
 
       return latestMessage && latestMessage !== this.message;
@@ -85,10 +101,11 @@ export default {
 
 <style>
 
-/*Qiqi - update button color*/
 .twc-btn {
+  /*Qiqi - update button color to #041e42*/
   border: 1px solid var(--button-bg-color, #041e42);
   background: var(--button-bg-color, #041e42);
+  /*Qiqi - update End*/
   color: var(--button-fg-color, #ffffff);
   cursor: pointer;
   font-weight: 400;
@@ -98,11 +115,6 @@ export default {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  border-radius: 0.25rem;
-  min-width: 62px;
-  display: inline-block;
-  margin: 3px;
-  text-decoration: none;
   /* Qiqi -padding: 0.375rem 0.75rem;
   font-size: 0.9em;
   line-height: 1.5;*/
@@ -111,34 +123,38 @@ export default {
   line-height: 16px;
   letter-spacing: -0.01em;
   /* Qiqi -update end*/
+  border-radius: 0.25rem;
+  min-width: 62px;
+  display: inline-block;
+  margin: 3px;
+  text-decoration: none;
 }
 
 .twc-btn:active {
-  outline:none;
+  outline: none;
 }
 
 .twc-expired .twc-btn {
   outline: none;
 }
 
-/*Qiqi -update unselected button hover underline hint*/
+/*Qiqi -add unselected button hover underline hint*/
 .twc-btn:hover {
   text-decoration: underline;
 }
 /*Qiqi -update end*/
 
-/*Qiqi -update button color*/
 .twc-btn.twc-selected,
 .twc-btn:not(.twc-expired) .twc-btn:hover {
-  /*Qiqi - color: var(--button-bg-color, #041e42);
+  /*Qiqi - color: var(--button-bg-color, #4e8cff);
   background: var(--button-fg-color, #ffffff);*/
   color: black;
   background: #CDD1DB;
 }
-/*Qiqi -update button color*/
+
 .twc-buttons.twc-selected,
 .twc-buttons:not(.twc-expired) .twc-btn:hover {
-  /*color: var(--button-bg-color, #041e42);
+  /*Qiqi - color: var(--button-bg-color, #4e8cff);
   background: var(--button-fg-color, #ffffff);*/
   color: black;
   background: #CDD1DB;
@@ -164,8 +180,7 @@ export default {
 
 .twc-buttons h5 {
   text-align: center;
-  /*Qiqi- change font family*/
-  font-family: "Scania Sans Semi Condensed", "Scania Sans Condensed";
+  font-family: inherit;
   line-height: 1.2;
   margin-top: 0;
   margin-bottom: 0.6rem;

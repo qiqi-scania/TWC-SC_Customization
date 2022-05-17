@@ -1,9 +1,6 @@
 <template>
-
   <div class="twc-clickablelist" :class="{ 'twc-expired': replySent || isExpired }">
     <h5 class="twc-clickablelist-title" v-if="clickablelistTitle">{{ clickablelistTitle }}</h5>
-    <!--Qiqi - change h5 to h2;
-    <h2 class="subtitle-1 font-weight-bold" v-if="clickablelistTitle">{{ clickablelistTitle }}</h2>-->
     <ul class="twc-clickablelist-message" :class="{ replied: replySent}">
       <li
         :tabindex="replySent || isExpired ? -1 : 0"
@@ -79,14 +76,13 @@ export default {
 
 
 <style>
-/*Qiqi - change margin-right 40% to auto, make list align center*/
 .twc-clickablelist {
   background-color: var(--clickablelist-bg-color, #ffffff);
   border: none;
   width: 100%;
+  /*Qiqi - change margin-right 40px to auto, make list align center*/
   margin-left: auto;
   margin-right: auto;
-  
 }
 
 .twc-clickablelist h5 {
@@ -105,15 +101,16 @@ export default {
 .twc-clickablelist.twc-expired h5 {
   color: var(--expired-color, #a9a9a9);
 }
-/*Qiqi - add text-align: center */
+
 .twc-clickablelist-message {
-  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   list-style: none;
   padding: 0;
   margin: 0;
+  /*Qiqi - add text-align: center */
+  text-align: center;
 }
 
 .twc-clickablelist-message__item {
@@ -123,12 +120,11 @@ export default {
   padding: 8px 14px 8px 14px;
   color: var(--clickablelist-fg-color, #263238);
   cursor: pointer;
-  /*Qiqi - update font-size: 0.9em;*/
+  /*Qiqi - update font-size: 0.9em;line-height;letter-spacing*/
   font-size: 14px;
   line-height: 16px;
   letter-spacing: -0.01em;
   /*Qiqi - update end*/
-  
 }
 
 .twc-clickablelist-message__item:active {
@@ -152,9 +148,9 @@ export default {
 
 .twc-clickablelist-message__item.twc-selected,
 .twc-clickablelist-message:not(.replied) .twc-clickablelist-message__item:hover {
-  color: var(--clickablelist-selected-fg-color, #263238);
   /* Qiqi- background-color: var(--clickablelist-selected-bg-color, #eceff1);*/
-  background-color:#F9FAFB;
+  background-color: #F9FAFB;
+  color: var(--clickablelist-selected-fg-color, #263238);
 }
 
 .twc-clickablelist-message.replied .clickablelist-message__item {
@@ -173,11 +169,12 @@ export default {
 .twc-clickablelist.twc-expired .twc-clickablelist-message__item.twc-selected:hover {
   cursor: default;
   /*Qiqi - background-color: var(--clickablelist-selected-bg-color, #eceff1);*/
+  background-color: #F9FAFB;
   color: var(--expired-color, #a9a9a9);
   /*Qiqi - add left border font*/
   border-left: 5px solid #2B70D3;
   font-weight: bold;
-  background-color:#F9FAFB;
+  /*Qiqi -Update End*/
 }
 
 </style>
